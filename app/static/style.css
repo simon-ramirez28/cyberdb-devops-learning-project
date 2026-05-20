@@ -1,0 +1,247 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #0a0a0a;
+  color: #00ff41;
+  font-family: 'Courier New', Courier, monospace;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+.scanlines {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 255, 65, 0.03) 2px,
+    rgba(0, 255, 65, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #00ff41;
+  padding-bottom: 1rem;
+}
+
+.glitch {
+  font-size: 2.5rem;
+  position: relative;
+  color: #00ff41;
+  text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  color: #ff0040;
+  z-index: -1;
+  animation: glitch-offset 0.3s infinite linear alternate-reverse;
+}
+
+.glitch::after {
+  color: #0080ff;
+  z-index: -2;
+  animation: glitch-offset2 0.2s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-offset {
+  0%   { transform: translate(-2px, 1px); }
+  100% { transform: translate(2px, -1px); }
+}
+
+@keyframes glitch-offset2 {
+  0%   { transform: translate(1px, -2px); }
+  100% { transform: translate(-1px, 2px); }
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin-top: 0.3rem;
+}
+
+.blink {
+  animation: blink-anim 1s step-end infinite;
+}
+
+@keyframes blink-anim {
+  50% { opacity: 0; }
+}
+
+.card {
+  background: #0d0d0d;
+  border: 1px solid #00ff41;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.15);
+}
+
+.card h2 {
+  font-size: 1rem;
+  color: #00cc33;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.field {
+  margin-bottom: 1rem;
+}
+
+.field label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 0.3rem;
+  color: #008f20;
+}
+
+textarea, input[type="text"] {
+  width: 100%;
+  background: #111;
+  border: 1px solid #00ff41;
+  border-radius: 2px;
+  color: #00ff41;
+  font-family: inherit;
+  font-size: 0.9rem;
+  padding: 0.5rem;
+  outline: none;
+  transition: box-shadow 0.2s;
+}
+
+textarea:focus, input[type="text"]:focus {
+  box-shadow: 0 0 8px rgba(0, 255, 65, 0.4);
+}
+
+textarea::placeholder, input::placeholder {
+  color: #005a1a;
+}
+
+.btn {
+  background: transparent;
+  color: #00ff41;
+  border: 1px solid #00ff41;
+  padding: 0.6rem 2rem;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  background: #00ff41;
+  color: #0a0a0a;
+  box-shadow: 0 0 12px #00ff41;
+}
+
+.msg {
+  margin-top: 0.8rem;
+  font-size: 0.8rem;
+  min-height: 1.2rem;
+}
+
+.msg.success { color: #00ff41; }
+.msg.error   { color: #ff0040; }
+
+#stats-section .stat {
+  display: inline-block;
+  margin-right: 2rem;
+  font-size: 0.85rem;
+}
+
+#stats-section .stat strong {
+  font-size: 1rem;
+}
+
+.table-wrap {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+th, td {
+  text-align: left;
+  padding: 0.5rem 0.4rem;
+  border-bottom: 1px solid #1a1a1a;
+}
+
+th {
+  color: #008f20;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.7rem;
+}
+
+tr:hover {
+  background: rgba(0, 255, 65, 0.05);
+}
+
+td.empty {
+  text-align: center;
+  padding: 2rem;
+  color: #005a1a;
+}
+
+.btn-small {
+  background: transparent;
+  color: #ff0040;
+  border: 1px solid #ff0040;
+  padding: 0.2rem 0.6rem;
+  font-family: inherit;
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-small:hover {
+  background: #ff0040;
+  color: #0a0a0a;
+}
+
+footer {
+  text-align: center;
+  font-size: 0.75rem;
+  border-top: 1px solid #1a1a1a;
+  padding-top: 1rem;
+  color: #005a1a;
+}
+
+footer a {
+  color: #00ff41;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}

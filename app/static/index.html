@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CyberDB — Mercado Negro de Datos</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="scanlines"></div>
+
+  <div class="container">
+    <header>
+      <h1 class="glitch" data-text="⚡ CYBERDB">⚡ CYBERDB</h1>
+      <p class="subtitle">Mercado Negro de Datos — <span class="blink">CONECTADO</span></p>
+    </header>
+
+    <section class="card" id="form-section">
+      <h2>> TRANSMITIR_DATO.exe</h2>
+      <form id="data-form">
+        <div class="field">
+          <label for="content">Contenido:</label>
+          <textarea id="content" rows="3" placeholder="Ej: breach: 50k creds filtrados..." required></textarea>
+        </div>
+        <div class="field">
+          <label for="source">Fuente (corporación):</label>
+          <input type="text" id="source" placeholder="Ej: Arasaka, Militech, Kang Tao...">
+        </div>
+        <button type="submit" class="btn">[ TRANSMITIR ]</button>
+      </form>
+      <div id="form-msg" class="msg"></div>
+    </section>
+
+    <section class="card" id="stats-section">
+      <h2>> ESTADÍSTICAS</h2>
+      <div id="stats-content">
+        <span class="stat">Registros: <strong id="stat-total">0</strong></span>
+        <span class="stat">Top NetRunner: <strong id="stat-top">—</strong></span>
+      </div>
+    </section>
+
+    <section class="card" id="data-section">
+      <h2>> DATOS_RECIENTES.log</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Handle</th>
+              <th>Contenido</th>
+              <th>Fuente</th>
+              <th>Hash</th>
+              <th>Acción</th>
+            </tr>
+          </thead>
+          <tbody id="data-tbody">
+            <tr><td colspan="6" class="empty">⏳ Escaneando red...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      <p>CyberDB v0.1.0 — <span id="time" class="blink">CONECTADO</span> | <a href="/docs" target="_blank">API Docs</a></p>
+    </footer>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
